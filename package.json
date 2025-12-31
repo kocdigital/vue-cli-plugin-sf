@@ -50,6 +50,9 @@
     "dev": "tsup --watch src",
     "lint": "eslint ."
   },
+  "peerDependencies": {
+    "@vue/cli-service": "^4.5.0"
+  },
   "dependencies": {
     "adm-zip": "^0.5.14"
   },
@@ -59,6 +62,7 @@
     "@kocdigital/eslint-plugin": "git+https://github.com/kocdigital/kd-vue-lintrules.git",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/adm-zip": "^0.5.5",
+    "@vue/cli-service": "^4.5.0",
     "eslint": "^8.24.0",
     "husky": "^8.0.3",
     "tsup": "~6.7.0",
