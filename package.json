@@ -51,6 +51,7 @@
     "lint": "eslint ."
   },
   "peerDependencies": {
+    "@kocdigital/sf-pagewrapper": "^1.0.1",
     "@vue/cli-service": "^4.5.0"
   },
   "dependencies": {
@@ -61,6 +62,7 @@
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
     "@kocdigital/eslint-plugin": "git+https://github.com/kocdigital/kd-vue-lintrules.git",
+    "@kocdigital/sf-pagewrapper": "^1.0.1",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/adm-zip": "^0.5.5",
     "@vue/cli-service": "^4.5.0",
