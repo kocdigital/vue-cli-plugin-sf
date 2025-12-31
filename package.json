@@ -30,10 +30,6 @@
       "types": "./dist/config.d.ts",
       "require": "./dist/config.js"
     },
-    "./generator": {
-      "types": "./dist/generator.d.ts",
-      "require": "./dist/generator.js"
-    },
     "./*": "./*"
   },
   "main": "dist/index.js",
