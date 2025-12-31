@@ -1,0 +1,54 @@
+{
+  "name": "@kocdigital/vue-cli-plugin-sf",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "description": "Koç Digital Platform360 Safe Frame Vue CLI Plugin",
+  "homepage": "https://github.com/kocdigital/vue-cli-plugin-sf#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kocdigital/vue-cli-plugin-sf.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kocdigital/vue-cli-plugin-sf/issues"
+  },
+  "keywords": [
+    "kocdigital",
+    "p360",
+    "platform360",
+    "sf",
+    "safe-frame",
+    "vue-cli",
+    "vue-cli-plugin",
+    "vue-cli-plugin-sf"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js"
+    },
+    "./config": {
+      "types": "./dist/config.d.ts",
+      "require": "./dist/config.js"
+    },
+    "./generator": {
+      "types": "./dist/generator.d.ts",
+      "require": "./dist/generator.js"
+    },
+    "./*": "./*"
+  },
+  "main": "dist/index.js",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": "16.x"
+  }
+}
