@@ -65,6 +65,7 @@
     "@kocdigital/sf-pagewrapper": "^1.0.1",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/adm-zip": "^0.5.5",
+    "@types/node": "~16.18.98",
     "@vue/cli-service": "^4.5.0",
     "eslint": "^8.24.0",
     "husky": "^8.0.3",
