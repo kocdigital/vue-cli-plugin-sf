@@ -28,6 +28,8 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Build Package
         run: npm run build
