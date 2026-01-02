@@ -2,9 +2,8 @@ name: Release Package
 
 on:
   release:
-    types:
-      - created
-  workflow_dispatch:
+    types: 
+      - released
 
 env:
   HUSKY: 0
