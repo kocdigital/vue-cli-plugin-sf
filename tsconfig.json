@@ -15,7 +15,7 @@
       ]
     },
     "types": [
-      "@vue/cli",
+      "@vue/cli-service",
     ]
   },
   "exclude": ["dist"],
