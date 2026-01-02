@@ -9,12 +9,13 @@ on:
 env:
   HUSKY: 0
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   release-package:
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v6
