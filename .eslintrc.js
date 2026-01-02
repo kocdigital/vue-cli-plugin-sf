@@ -18,6 +18,7 @@ module.exports = {
         }],
         'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': 'warn',
+        '@typescript-eslint/no-var-requires': 'off',
         'vue/valid-v-slot': ['error', {
             allowModifiers: true,
         }],
