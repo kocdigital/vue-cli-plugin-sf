@@ -1,9 +1,9 @@
-name: Release Package
+name: Pre-Release Package
 
 on:
   release:
     types: 
-      - released
+      - prereleased
 
 env:
   HUSKY: 0
@@ -13,7 +13,7 @@ permissions:
   packages: write
 
 jobs:
-  release-package:
+  prerelease-package:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
