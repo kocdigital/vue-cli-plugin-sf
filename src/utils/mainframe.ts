@@ -9,13 +9,13 @@ const {warn} = require('@vue/cli-shared-utils');
  * Download the ZIP file into {@link destinationPath destination path}
  * @param zipURLOrPath ZIP file URL or full URL
  * @example
- * "https://example.com/myzip.zip"
- * new URL("/mainframe_xpublic.zip", "https://example.com")
+ * "https://p360.example.com/mainframe_xpublic.zip"
+ * new URL("/mainframe_xpublic.zip", "https://p360.example.com")
  *
  * @param destinationPath Downloaded mainframe ZIP file destination path
  * @example`<projectRoot>/node_modules/.cache/mainframe_xpublic.zip`
  */
-module.exports.downloadMainframeZip = function(zipURLOrPath: URL | string, destinationPath: string): Promise<void> {
+function downloadMainframeZip(zipURLOrPath: URL | string, destinationPath: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {
         const terminalWidth = process.stdout.columns || 80;
         const BASE_DOWNLOAD_MESSAGE = 'Downloading MainFrame Xpublic Zip: 100.00% []';
@@ -96,7 +96,7 @@ module.exports.downloadMainframeZip = function(zipURLOrPath: URL | string, desti
                 reject(err);
             });
     });
-};
+}
 
 /**
  * Extract Mainframe ZIP file into {@link destinationDir} directory
@@ -106,7 +106,7 @@ module.exports.downloadMainframeZip = function(zipURLOrPath: URL | string, desti
  * @param targetDir Target directory where the ZIP file will be extracted
  * @example "<projectRoot>/node_modules/.cache/sf/"
  */
-module.exports.extractMainframeZip = function(zipPath: string, targetDir: string): Promise<void> {
+function extractMainframeZip(zipPath: string, targetDir: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {
         try {
             const zip = new AdmZip(zipPath);
@@ -117,4 +117,7 @@ module.exports.extractMainframeZip = function(zipPath: string, targetDir: string
             reject(error);
         }
     });
-};
+}
+
+module.exports.downloadMainframeZip = downloadMainframeZip;
+module.exports.extractMainframeZip = extractMainframeZip;
