@@ -5,6 +5,7 @@ import type minimist = require('minimist');
 import type vueCLIService = require('@vue/cli-service');
 import type config = require('@/config');
 
+const {error} = require('@/utils/logger');
 const {resolveConfig} = require('@/config');
 const {
     MAINFRAME_DIR,
@@ -28,7 +29,7 @@ module.exports = async (
     const sfConfig: config.SFConfig = resolveConfig(api);
 
     const nodeModulesDir = api.resolve('node_modules');
-    const nodeModulesCacheDir = path.join(nodeModulesDir, '.cache');
+    const nodeModulesCacheDir = path.join(nodeModulesDir, '.cache', 'sf');
 
     if (!fs.existsSync(nodeModulesCacheDir)) {
         fs.mkdirSync(nodeModulesCacheDir, {recursive: true});
@@ -43,11 +44,11 @@ module.exports = async (
      */
     const mainframeURL = new URL(MAINFRAME_ZIP_FILENAME, sfConfig?.mainFrameUrl);
     /**
-     * @example '<projectRoot>/node_modules/.cache/mainframe_xpublic.zip'
+     * @example '<projectRoot>/node_modules/.cache/sf/mainframe_xpublic.zip'
      */
     const mainframeZipPath = path.join(nodeModulesCacheDir, MAINFRAME_ZIP_FILENAME);
     /**
-     * @example '<projectRoot>/node_modules/.cache/mainframe/'
+     * @example '<projectRoot>/node_modules/.cache/sf/mainframe/'
      */
     const mainframeExtractDir = path.join(nodeModulesCacheDir, MAINFRAME_DIR);
 
@@ -55,8 +56,14 @@ module.exports = async (
         fs.mkdirSync(mainframeExtractDir, {recursive: true});
     }
 
-    await downloadMainframeZip(mainframeURL, mainframeZipPath);
-    await extractMainframeZip(mainframeZipPath, mainframeExtractDir);
+    try {
+        await downloadMainframeZip(mainframeURL, mainframeZipPath);
+        await extractMainframeZip(mainframeZipPath, mainframeExtractDir);
+    } catch (err) {
+        process.stderr.write('\n');
+        error(err);
+        process.exit(1);
+    }
 
     api.chainWebpack((chainableConfig) => {
         if (entry) {

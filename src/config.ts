@@ -2,7 +2,7 @@ import fs = require('node:fs');
 import path = require('node:path');
 
 import type vueCLIService = require('@vue/cli-service');
-const {warn, error} = require('@vue/cli-shared-utils');
+const {warn, error} = require('@/utils/logger');
 
 const validator = require('@/utils/validator');
 const {SF_CONFIG_FILENAME, DEFAULT_SF_CONFIG} = require('@/constants/sf');

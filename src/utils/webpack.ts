@@ -4,13 +4,23 @@ import type vueCLIService = require('@vue/cli-service');
 
 module.exports.clearMissingAppEntry = function(api: vueCLIService.PluginAPI) {
     api.chainWebpack((chainableConfig) => {
-        const appEntry = chainableConfig.entry('app');
+        try {
+            const appEntry = chainableConfig.entry('app');
 
-        const appEntryPaths = appEntry.values().map((appEntryValue) => api.resolve(appEntryValue));
-        const anyAppEntryExists = appEntryPaths.some((appEntryPath) => fs.existsSync(appEntryPath));
+            const appEntryValues = appEntry?.values?.() ?? [];
 
-        if (!anyAppEntryExists) {
-            appEntry.clear();
+            if (appEntryValues.length === 0) {
+                return;
+            }
+
+            const appEntryPaths = appEntryValues.map((appEntryValue) => api.resolve(appEntryValue));
+            const anyAppEntryExists = appEntryPaths.some((appEntryPath) => fs.existsSync(appEntryPath));
+
+            if (!anyAppEntryExists) {
+                appEntry.clear().end();
+            }
+        } catch {
+            // Silently handle errors - if entry clearing fails, let webpack handle it
         }
     });
 };
