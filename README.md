@@ -11,7 +11,7 @@ This is a Vue CLI plugin for integrating with SF. It automates the setup of the 
 ## Installation
 
 ```bash
-npm install --save-dev vue-cli-plugin-sf
+npm install --save-dev @kocdigital/vue-cli-plugin-sf
 ```
 
 ## Configuration
