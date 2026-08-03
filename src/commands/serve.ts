@@ -56,8 +56,14 @@ module.exports = async (
         fs.mkdirSync(mainframeExtractDir, {recursive: true});
     }
 
-    await downloadMainframeZip(mainframeURL, mainframeZipPath);
-    await extractMainframeZip(mainframeZipPath, mainframeExtractDir);
+    try {
+        await downloadMainframeZip(mainframeURL, mainframeZipPath);
+        await extractMainframeZip(mainframeZipPath, mainframeExtractDir);
+    } catch (err) {
+        process.stderr.write('\n');
+        error(err);
+        process.exit(1);
+    }
 
     api.chainWebpack((chainableConfig) => {
         if (entry) {
