@@ -5,6 +5,7 @@ import type minimist = require('minimist');
 import type vueCLIService = require('@vue/cli-service');
 import type config = require('@/config');
 
+const {error} = require('@/utils/logger');
 const {resolveConfig} = require('@/config');
 const {
     MAINFRAME_DIR,

@@ -3,7 +3,7 @@ import https = require('node:https');
 import fs = require('node:fs');
 
 import AdmZip = require('adm-zip');
-const {warn} = require('@vue/cli-shared-utils');
+const {skip, info} = require('@/utils/logger');
 
 /**
  * Download the ZIP file into {@link destinationPath destination path}

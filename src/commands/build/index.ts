@@ -3,8 +3,8 @@ import type minimist = require('minimist');
 import type vueCLIService = require('@vue/cli-service');
 import type config = require('@/config');
 
-const {log, warn, error} = require('@vue/cli-shared-utils');
 const {fileToComponentName} = require('@vue/cli-service/lib/commands/build/resolveWcEntry');
+const {log, warn, error} = require('@/utils/logger');
 const {resolveConfig} = require('@/config');
 const {resolvePagesEntry} = require('./resolvePages');
 function abort(msg: string) {
