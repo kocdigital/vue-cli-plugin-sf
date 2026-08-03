@@ -29,7 +29,7 @@ module.exports = async (
     const sfConfig: config.SFConfig = resolveConfig(api);
 
     const nodeModulesDir = api.resolve('node_modules');
-    const nodeModulesCacheDir = path.join(nodeModulesDir, '.cache');
+    const nodeModulesCacheDir = path.join(nodeModulesDir, '.cache', 'sf');
 
     if (!fs.existsSync(nodeModulesCacheDir)) {
         fs.mkdirSync(nodeModulesCacheDir, {recursive: true});
@@ -44,11 +44,11 @@ module.exports = async (
      */
     const mainframeURL = new URL(MAINFRAME_ZIP_FILENAME, sfConfig?.mainFrameUrl);
     /**
-     * @example '<projectRoot>/node_modules/.cache/mainframe_xpublic.zip'
+     * @example '<projectRoot>/node_modules/.cache/sf/mainframe_xpublic.zip'
      */
     const mainframeZipPath = path.join(nodeModulesCacheDir, MAINFRAME_ZIP_FILENAME);
     /**
-     * @example '<projectRoot>/node_modules/.cache/mainframe/'
+     * @example '<projectRoot>/node_modules/.cache/sf/mainframe/'
      */
     const mainframeExtractDir = path.join(nodeModulesCacheDir, MAINFRAME_DIR);
 

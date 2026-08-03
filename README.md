@@ -47,8 +47,8 @@ vue-cli-service serve
 
 **What it does:**
 1.  Reads `sf.config.js`.
-2.  Downloads `mainframe_xpublic.zip` from the configured `mainFrameUrl` to `node_modules/.cache/mainframe_xpublic.zip`.
-3.  Extracts the zip to `node_modules/.cache/mainframe`.
+2.  Downloads `mainframe_xpublic.zip` from the configured `mainFrameUrl` to `node_modules/.cache/sf/mainframe_xpublic.zip`.
+3.  Extracts the zip to `node_modules/.cache/sf/mainframe`.
 4.  Updates the Webpack configuration to:
     -   Use the extracted `index.html` as the HTML template.
     -   Copy the extracted Mainframe assets to the output directory.
@@ -79,5 +79,5 @@ my-project/
 
 ## Under the Hood
 
-The plugin uses `node_modules/.cache` to store the downloaded Mainframe assets, ensuring they are available for the build process without cluttering your source control.
+The plugin uses `node_modules/.cache/sf/` to store the downloaded Mainframe assets, ensuring they are available for the build process without cluttering your source control.
 
