@@ -7,6 +7,7 @@ const buildCommandFn = require('@/commands/build');
 const {clearMissingAppEntry, addRootAlias} = require('@/utils/webpack');
 
 module.exports = (api: vueCLIService.PluginAPI, options: vueCLIService.ProjectOptions): void => {
+    // TODO:  fix src/main.ts not found error still exists
     clearMissingAppEntry(api);
     addRootAlias(api);
 
